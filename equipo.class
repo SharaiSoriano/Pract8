@@ -1,0 +1,84 @@
+package pract8;
+
+
+class Equipo {
+    String nombreEq;
+    int division;
+    String entrenador;
+    int torneosTotales;
+    int torneosGanados;
+    int torneosPerdidos;
+    
+    Jugador jugadores[] = new Jugador[10];
+    Random aleatorio = new Random();
+
+    public void setNameEquipo(String nombre){
+        nombreEq = nombre;
+    }
+    public void setDivision(int division){
+        this.division = division;
+    }
+    public void setEntrenador(String entrenador){
+        this.entrenador = entrenador;
+    }
+    public void setTorneosTotales(int torneosT){
+        torneosTotales = torneosT;
+    }
+    public void setTorenosGanados(int torneosG){
+        torneosGanados = torneosG;
+    }
+    public void setTorneosPerdidos(int torneosP){
+        torneosPerdidos = torneosP;
+    }
+    public void setJugadores(int numEquipo){
+        System.out.println("\nEQUIPO " +(numEquipo+1));
+    
+    public String getNameEquipo()
+    {
+        return nombreEq;
+    }
+    public int getDivision()
+    {
+        return division;
+    }    
+        
+        
+        for(int i=0;i<10;i++){
+            jugadores[i] = new Jugador();
+        }
+        for(int i=0;i<10;i++){
+            jugadores[i].setNombre(CapturaEntrada.capturarCadena("Nombre"));
+            if(numEquipo!=0){
+                for(int j=0;j<numEquipo;j++){
+                    for(int k=0;k<10;k++){
+                        while(jugadores[i].getNombreJugador().equals(Torneo.equipos[j].jugadores[k].getNombreJugador())){
+                            jugadores[i].setNombre(CapturaEntrada.capturarCadena("Ingrese un nombre diferente"));
+                        }
+                    }
+                }
+            }
+            jugadores[i].setnumUniforme(CapturaEntrada.capturarEntero("Numero del jugador"));
+            for(int x=0;x<i;x++){
+                while(jugadores[i].getnumUniforme() == jugadores[x].getnumUniforme()){
+                    jugadores[i].setnumUniforme(CapturaEntrada.capturarEntero("Ingrese un numero de jugador diferente"));
+                }
+            }
+            if(i<5){
+                jugadores[i].setPosicion("Delantero");
+            }
+            else{
+                jugadores[i].setPosicion("Defensa");
+            }
+            jugadores[i].setEstatura(aleatorio.nextInt(200-170)+170);
+            jugadores[i].setpuntosAnotados(aleatorio.nextInt(50));
+        }
+    }
+   
+    public int puntosTotales(){
+        int puntosT = 0;
+        for(Jugador j: jugadores){
+            puntosT+= j.getPuntosAnotados();
+        }
+        return puntosT;
+    }
+}

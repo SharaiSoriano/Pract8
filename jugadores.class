@@ -1,0 +1,74 @@
+package pract8;
+
+
+class Jugador {
+    int numUniforme;
+    String nombre;
+    int puntosAnotados;
+    String posicion;
+    double estatura;
+
+    public void setnumUniforme(int num){
+        numUniforme = num;
+    }
+    public void setNombre(String nomb){
+        nombre = nomb;
+    }
+    public void setpuntosAnotados(int puntos){
+        puntosAnotados = puntos;
+    }
+    public void setPosicion(String pos){
+        posicion = pos;
+    }
+    public void setEstatura(double estatura){
+        this.estatura = estatura;
+    }
+    public int getnumUniforme(){
+        return numUniforme;
+    }
+    public String getNombreJugador(){
+        return nombre;
+    }
+
+    public int getPuntosAnotados(){
+        return puntosAnotados;
+    }
+
+}
+
+
+
+ class CapturaEntrada {
+    public static int capturarEntero(String ingreso){
+        Scanner sc = new Scanner(System.in);
+        System.out.print(""+ingreso+": ");
+        return (sc.nextInt());
+    }
+
+    public static float capturarFlotante(String ingreso){
+        Scanner sc = new Scanner(System.in);
+        System.out.print(""+ingreso+": ");
+        return (sc.nextFloat());
+    }
+
+    public static double capturarDoble(String ingreso){
+        Scanner sc = new Scanner(System.in);
+        System.out.print(""+ingreso+": ");
+        return (sc.nextDouble());
+    }
+
+    public static String capturarCadena(String ingreso){
+        Scanner sc = new Scanner(System.in);
+        System.out.print(""+ingreso+": ");
+        return (sc.nextLine());
+
+    }
+    public static char capturarChar(String ingreso)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print(""+ingreso+": ");
+        return (sc.nextLine().charAt(0));
+    }
+}
+
+ 
